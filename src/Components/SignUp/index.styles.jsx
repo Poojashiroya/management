@@ -110,3 +110,9 @@ export const LoginLink = styled(Link)`
   line-height: normal;
   text-decoration: none;
 `;
+
+export const Error = styled.p`
+ color: red;
+ font-size: 14px;
+ margin: 15px 0 0;
+`;

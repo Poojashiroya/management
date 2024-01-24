@@ -3,13 +3,15 @@ import styled from "styled-components";
 
 export const FooterContainer = styled.footer`
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
   flex-wrap: wrap;
-  align-items: flex-start;
-  padding: 24px 40px;
+  align-items: center;
+  padding: 24px;
   width: 100%;
   box-sizing: border-box;
   background: #1e2833;
+  position: absolute;
+  bottom: 0;
 `;
 
 export const FooterTop = styled.div`
@@ -53,8 +55,7 @@ export const Lists = styled.div`
 
 export const List = styled.ul`
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 20px;
 `;
 

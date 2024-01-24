@@ -5,6 +5,7 @@ import {
   CreateAccount,
   Detail,
   DetailsContainer,
+  Error,
   Img,
   Input,
   LoginLink,
@@ -15,6 +16,7 @@ import {
   SignUpRight,
   Submit,
 } from "./index.styles";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [user, setUser] = useState({
@@ -24,6 +26,8 @@ const SignUp = () => {
     phoneNumber: "",
     password: "",
   });
+  const [error, setError] = useState();
+  const navigate = useNavigate();
 
   const handleChange = (event, property) => {
     const value = event.target.value;
@@ -50,6 +54,7 @@ const SignUp = () => {
     const validEmail = emailRegex.test(user.email);
     const passwordRegex = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
     const validPassword = passwordRegex.test(user.password);
+
     if(validEmail && validPassword && user.firstName && user.lastName && user.phoneNumber && user.phoneNumber.length === 10){
         const response = await fetch("http://localhost:3001/api/auth/register", {
             method: "POST",
@@ -63,12 +68,20 @@ const SignUp = () => {
 
         if(response.ok){
             const data = await response.json();
-            console.log(data);
+            if(data.code === "registered"){
+                navigate("/login");
+                setError("");
+            }
+            if(data.code === "existuser"){
+                setError("User Already Exist");
+            }
         } else {
+            setError("Internal Error")
             console.log("error")
         }
     }
   };
+
   return (
     <SignUpContainer>
       <SignUpLeft>
@@ -102,6 +115,7 @@ const SignUp = () => {
             <Input type="text" id="phoneNo" placeholder="Phone Number" value={user.phoneNumber} onChange={(e) => handleChange(e, "phoneNumber")}/>
           </Detail>
         </DetailsContainer>
+        {error && <Error>{error}</Error>}
         <Submit onClick={createUser}>Create Account</Submit>
         <LoginLinkContainer>
           <AlreadyExist>Already have an account ?</AlreadyExist>

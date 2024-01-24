@@ -170,3 +170,10 @@ export const FeatureDescription = styled.p`
   font-weight: 400;
   line-height: 138.5%;
 `;
+
+
+export const Error = styled.p`
+ color: red;
+ font-size: 14px;
+ margin: 15px 0 0;
+`;

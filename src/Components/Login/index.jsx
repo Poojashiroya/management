@@ -1,12 +1,12 @@
 import { useState } from "react";
 import Icons from "../../Icons";
 import Images from "../../Images";
-import { useUser } from "../../Providers/UserContext";
 
 // css
 import {
   CardImg,
   CreateAccount,
+  Error,
   Feature,
   FeatureDescription,
   FeatureTitle,
@@ -25,32 +25,46 @@ import {
   SupportImg,
   Title,
 } from "./insdex.styles";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const { login } = useUser();
   const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("")
+  const [password, setPassword] = useState("");
+  const [error,setError] = useState("")
 
+  const navigate = useNavigate();
   const handleLogin = async () => {
     const response = await fetch("http://localhost:3001/api/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "http://localhost:3001/api/auth.login"
+        "Access-Control-Allow-Origin": "http://localhost:3001"
       },
-      body: JSON.stringify({ userName, password }),
+      body: JSON.stringify({ email: userName, password }),
       credentials: 'include',
     });
 
     if (response.ok) {
       const data = await response.json();
-      console.log(data);
-      login(data.token);
+      if(data.code === "loggedIn"){
+        navigate("/")
+        setError("")
+      }
+      if(data.code === "alreadyLoggedIn"){
+        setError("User Already LoggedIn");
+      }
+      if(data.code === "incorrectPassword"){
+        setError("Incorrect Password");
+      }
+      if(data.code === "userNotFound"){
+        setError("USer Not Found");
+      }
     } else {
       // Handle authentication error
-      console.error("Authentication failed");
+      setError("Internal Error");
     }
   };
+  
   return (
     <LoginContainer>
       <LoginLeft>
@@ -64,6 +78,7 @@ const Login = () => {
           <Input type="email" id="email" placeholder="abc@gmail.com" value={userName} onChange={(e) => setUserName(e.target.value)}/>
           <Label htmlFor="password">Password</Label>
           <Input type="password" id="password" placeholder="@#*%"  value={password} onChange={(e) => setPassword(e.target.value)}/>
+          {error && <Error>{error}</Error>}
           <RememberMe>
             <RememberCheckbox type="checkbox" />
             Remember Me

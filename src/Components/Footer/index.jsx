@@ -1,12 +1,7 @@
 import Icons from "../../Icons";
-import Images from "../../Images";
 import {
   FooterBottom,
   FooterContainer,
-  FooterDescription,
-  FooterDetails,
-  FooterLogo,
-  FooterLogoLink,
   FooterTop,
   List,
   ListItem,
@@ -18,7 +13,7 @@ const Footer = () => {
   return (
     <FooterContainer>
       <FooterTop>
-        <FooterDetails>
+        {/* <FooterDetails>
           <FooterLogoLink>
             <FooterLogo src={Images.FooterLogo} alt="footer-logo" />
           </FooterLogoLink>
@@ -28,9 +23,9 @@ const Footer = () => {
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat.
           </FooterDescription>
-        </FooterDetails>
+        </FooterDetails> */}
         <Lists>
-            <List>
+            {/* <List>
                 <ListTitle>Services</ListTitle>
                 <ListItem>Email Marketing</ListItem>
                 <ListItem>Campaigns</ListItem>
@@ -43,7 +38,7 @@ const Footer = () => {
                 <ListItem>Benefits</ListItem>
                 <ListItem>Team</ListItem>
                 <ListItem>Careers</ListItem>
-            </List>
+            </List> */}
             <List>
                 <ListTitle>Follow Us</ListTitle>
                 <ListItem>

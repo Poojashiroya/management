@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ProfileContainer = styled.div`
   width: 100%;
   display: flex;
-  padding: 46px 66px;
+  padding: 18px 40px;
   box-sizing: border-box;
   flex-direction: column;
 `;
@@ -15,10 +15,10 @@ export const Title = styled.h3`
   font-style: normal;
   font-weight: 700;
   line-height: 20px;
-  padding-bottom: 12px;
+  padding-bottom: 8px;
   border-bottom: 1px solid #d0d0d0;
   width: fit-content;
-  margin: 12px 0;
+  margin: 8px 0;
 `;
 
 export const UserDetailsContainer = styled.div`
@@ -55,7 +55,6 @@ export const PropertyVal = styled.p`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  
 `;
 
 export const Input = styled.input`
@@ -94,12 +93,25 @@ export const Submit = styled.button`
   cursor: pointer;
   padding: 8px 12px;
   border-radius: 8px;
-border: 1px solid #384D6C;
-background: var(--peak-primary, #384D6C);
-color: #fff;
-text-align: center;
-font-size: 14px;
-font-style: normal;
-font-weight: 700;
-line-height: 150%;
+  border: 1px solid #384d6c;
+  background: var(--peak-primary, #384d6c);
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+`;
+
+export const Status = styled.p`
+  font-size: 14px;
+  color: red;
+  margin: 4px 0;
+`;
+
+export const Row = styled.div`
+ display: flex;
+ align-items: center;
+ width: 100%;
+ gap: 24px;
 `;

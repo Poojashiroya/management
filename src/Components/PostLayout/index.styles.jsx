@@ -15,4 +15,8 @@ export const Content = styled.aside`
   max-height: 100vh;
   overflow-y: auto;
   position: relative;
+
+  & > *:first-child {
+    overflow-y: auto;
+  }
 `;

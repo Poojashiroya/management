@@ -10,7 +10,7 @@ export const FooterContainer = styled.footer`
   width: 100%;
   box-sizing: border-box;
   background: #1e2833;
-  position: absolute;
+  position: sticky;
   bottom: 0;
 `;
 

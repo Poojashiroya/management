@@ -10,7 +10,7 @@ export const LoginLeft = styled.div`
   width: 53%;
   display: flex;
   flex-direction: column;
-  padding: 65px 45px;
+  padding: 25px 45px;
   box-sizing: border-box;
 `;
 
@@ -119,8 +119,8 @@ export const LoginRight = styled.div`
   justify-content: center;
   background: #1c4532;
   width: 47%;
-  height: 100vh;
-  padding: 57px 45px 45px;
+  height: 100%;
+  padding: 24px 45px;
   box-sizing: border-box;
 `;
 
@@ -144,7 +144,7 @@ export const SupportImg = styled.img`
 `;
 
 export const CardImg = styled.img`
-  margin: 153px 0 70px;
+  margin: 50px 0;
 `;
 
 export const Feature = styled.div`
@@ -171,9 +171,15 @@ export const FeatureDescription = styled.p`
   line-height: 138.5%;
 `;
 
-
 export const Error = styled.p`
- color: red;
- font-size: 14px;
- margin: 15px 0 0;
+  color: red;
+  font-size: 14px;
+  margin: 15px 0 0;
+`;
+
+export const ForgetPassword = styled(Link)`
+  font-size: 14px;
+  color: #718096;
+  cursor: pointer;
+  margin: 8px 0;
 `;
